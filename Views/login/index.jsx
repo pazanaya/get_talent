@@ -1,16 +1,16 @@
-import React from 'react';
 import { StyleSheet, Text, View, TextInput, Dimensions, TouchableOpacity, Button, Linking, Image,} from 'react-native';
 
+import React from 'react';
 
 
-const login=() => {
+
+const login = () => {
   return (
     <View style={styles.container}>
 
-        <Text style={styles.titulo}> INICIAR
-        <Text style={styles.titulo2}> SESIÓN
-        </Text>
-        </Text>
+        <Text style={styles.titulo}> INICIAR </Text>
+        <Text style={styles.titulo2}> SESIÓN </Text>
+        
      
         <TextInput
           placeholder="usuario@correo.com"
@@ -21,18 +21,19 @@ const login=() => {
           style={styles.TextInput}
           secureTextEntry= {true}
         />
-        <Text style={styles.contraseñaolvidada}> ¿Contraseña olvidada?
-
-        </Text>
-        <Button 
+          
+        
+        <Text style={styles.contraseñaolvidada}> ¿Contraseña olvidada? </Text>
+       
+        <Button
           title= 'INGRESAR' 
           style={styles.botoni}
         />
-      <StatusBar style="auto" />
+      
     </View>
   );
 }
-export default login
+
 
 const styles = StyleSheet.create({
   container: {
@@ -77,13 +78,8 @@ const styles = StyleSheet.create({
     width: '80%',
     marginTop: 40,
   },
- /* imgstyle: {
-    width: 100,
-    height: 100,
-    marginTop: 30.
-  }
 
-  */
-   
 
 });
+
+export default login;
