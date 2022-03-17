@@ -2,11 +2,42 @@ import { StyleSheet, Text, View, TextInput, Dimensions, TouchableOpacity, Button
 
 import React from 'react';
 
+import axios from "axios";
 
 
+const traerInformacion = async () => {
+  setIsLoading(true);
+  try {
+    const { data } = await axios.get("http://18.206.223.131/api/user");
+    setListaUsuarios(data);
+  } catch (error) {
+    //mostrar mensaje de error: ejemplo
+    alert("Ocurrió un error tratando de obtener la información del servidor");
+  }
+  setIsLoading(false);
+};
 
-
+ /*--------------------------------------------------------------*/
+ const initialState = {
+  email: "",
+  password: "",
+};
+const ChangeUserInputs = (propiedad, value) => {
+  setUser({
+    ...user,
+    [propiedad]: value,
+  });
+};
 const Login = ({ navigation }) => {
+  const [user, setUser] = React.useState(initialState);
+
+  
+
+  const postUser = async () => {
+    await axios.post("http://18.206.223.131/api/user", user);
+    setUser(initialState);
+  };
+  
   return (
     <View style={styles.container}>   
         <View style={styles.containerTitle}>
@@ -22,8 +53,10 @@ const Login = ({ navigation }) => {
 
         <View style={styles.containerInput}>
           <TextInput
-            placeholder="usuario@correo.com"
+            placeholder="E-mail"
             style={styles.input}
+            value={user.email}
+            onChangeText={(text) => ChangeUserInputs("email", text)}
           
           />
         </View>
@@ -33,6 +66,8 @@ const Login = ({ navigation }) => {
             placeholder='password'
             style={styles.input}
             secureTextEntry= {true}
+            value={user.password}
+            onChangeText={(text) => ChangeUserInputs("password", text)}
           />
         </View>
 
@@ -45,9 +80,8 @@ const Login = ({ navigation }) => {
         </TouchableOpacity>
 
        
-        <TouchableOpacity style={styles.botoni}>
+        <TouchableOpacity style={styles.botoni} onPress={() => navigation.navigate('Vista General')}>
           <Text style={styles.buttonText}>INGRESAR</Text> 
-          
           
         </TouchableOpacity>
       

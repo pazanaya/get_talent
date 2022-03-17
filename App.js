@@ -19,6 +19,7 @@ export default function App() {
       <MyNavegacion.Navigator>
         <MyNavegacion.Screen name="Login" component={Login} />
         <MyNavegacion.Screen name="Recuperarcontraseña" component={Recuperarcontraseña} />
+        <MyNavegacion.Screen name="Vista General" component={VistaGeneral} />
       </MyNavegacion.Navigator>
     </NavigationContainer>
     
