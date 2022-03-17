@@ -4,12 +4,20 @@ import React from 'react';
 
 
 
-const login = () => {
+
+
+const Login = ({ navigation }) => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container}>   
         <View style={styles.containerTitle}>
           <Text style={styles.titulo}> INICIAR </Text>
           <Text style={styles.titulo2}> SESIÓN </Text>  
+        </View>
+
+        <View>
+          <Image style= {styles.image} source={require('../../assets/logo.jpg')}
+          />
+
         </View>
 
         <View style={styles.containerInput}>
@@ -28,14 +36,18 @@ const login = () => {
           />
         </View>
 
-        
-        
-          
-        
-        <Text style={styles.contraseñaolvidada}> ¿Contraseña olvidada? </Text>
+        <TouchableOpacity 
+            style = {styles.botonc}
+            onPress={() => navigation.navigate("Recuperarcontraseña")}      
+        >
+            <Text style={styles.buttonText2}> ¿Contraseña olvidada? </Text>
+    
+        </TouchableOpacity>
+
        
         <TouchableOpacity style={styles.botoni}>
           <Text style={styles.buttonText}>INGRESAR</Text> 
+          
           
         </TouchableOpacity>
       
@@ -56,21 +68,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   titulo: {
-    fontSize: 16,
+    fontSize: 20,
     color: '#64d9c5',
     fontWeight: 'normal',
 
   },
   titulo2: {
-    fontSize: 16,
+    fontSize: 20,
     color: "#64d9c5",
     fontWeight: 'bold'
   },
 
-  contraseñaolvidada: {
-    fontSize: 20,
-    color: 'gray',
-    marginTop: 30,
+  buttonText2: {
+    fontSize: 16,
+    color: '#c4c4c4',
 
   },
   
@@ -111,9 +122,24 @@ const styles = StyleSheet.create({
     width: '80%',
     height: 50,
     marginTop: 40,
+  },
+  botonc: {
+    padding: 10,
+    width: '60%',
+    height: 50,
+    borderRadius: 10,
+    marginTop: 40,
+    backgroundColor: '#ffff',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+  image: {
+    height: 200,
+    width: 200,
   }
+
 });
 
-/*<Image source={require('./img/logo.jpg')}/>*/
+export default Login;
 
-export default login;
