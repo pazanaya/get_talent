@@ -34,8 +34,14 @@ const Login = ({ navigation }) => {
   
 
   const postUser = async () => {
-    await axios.post("http://18.206.223.131/api/user", user);
-    setUser(initialState);
+    try {
+      const response = await axios.post("",user);
+      navigation.navigate("VistaGeneral")
+      
+    } catch (error) {
+      alert("tus credenciales son invalidas")
+      
+    }
   };
   
   return (
@@ -80,7 +86,7 @@ const Login = ({ navigation }) => {
         </TouchableOpacity>
 
        
-        <TouchableOpacity style={styles.botoni} onPress={() => navigation.navigate('Vista General')}>
+        <TouchableOpacity style={styles.botoni} onPress={postUser}>
           <Text style={styles.buttonText}>INGRESAR</Text> 
           
         </TouchableOpacity>
