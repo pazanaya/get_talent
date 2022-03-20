@@ -22,15 +22,15 @@ const traerInformacion = async () => {
   email: "",
   password: "",
 };
-const ChangeUserInputs = (propiedad, value) => {
-  setUser({
-    ...user,
-    [propiedad]: value,
-  });
-};
+
 const Login = ({ navigation }) => {
   const [user, setUser] = React.useState(initialState);
-
+  const ChangeUserInputs = (propiedad, value) => {
+    setUser({
+      ...user,
+      [propiedad]: value,
+    });
+  };
   
 
   const postUser = async () => {

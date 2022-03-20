@@ -1,15 +1,15 @@
 const array = [
     {
       email: "jesus@example.com",
-      password: "contraseña1",
+      password: "contraseña1#",
     },
     {
         email: "anaya@example.com",
-        password: "contraseña2",
+        password: "contraseña2?",
     },
     {
       email: "chester@example.com",
-      password: "contraseña3",
+      password: "contraseña3%",
     },
   ];
   
